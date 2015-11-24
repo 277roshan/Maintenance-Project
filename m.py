@@ -97,24 +97,30 @@ def explosion(tree, transaction):
 						print i,'*' 
 
 
+def main():
+	#test
+	data = data_structure(10)
+	try:
+		tree = data[0]
 
-#test
+		print tree
+		defect = data[1] 
+		transactions = get_transactions(tree)
 
-data = data_structure(3)
-tree = data[0]
-print tree
-explosion(tree,'A')
+		for i in transactions:
+			m = unique_modules(tree, i)
+			print "Unique modules for", i
+			print m
+			print "Number of unique modules:",len(m)
 
-# print tree
-# defect = data[1] 
-# transactions = get_transactions(tree)
+		for i in transactions:
+			print i, "TO",defect
+			print all_paths(tree, i, defect)
 
-# for i in transactions:
-# 	m = unique_modules(tree, i)
-# 	print "Unique modules for", i
-# 	print m
-# 	print "Number of unique modules:",len(m)
+		explosion(tree,'A')
+	except:
+		print "Module Characters more than 10. Please correct!" 
 
-# for i in transactions:
-# 	print i, "TO",defect
-# 	print all_paths(tree, i, defect)
+
+if __name__ == "__main__":
+	main()
