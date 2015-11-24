@@ -1,0 +1,12 @@
+1) Read the input from the input file (inp.txt).
+2) Find Unique modules by doing breadth-first-search every nodes of the tree and eliminating duplicates.
+3) Print out all the unique modules and number of unique modules.
+4) Find paths from transaction to defective module.
+5) For this purpose use queue to implement breadth-first-search.
+6) List all the paths
+7) Check if the item reaches to defective module even if it is in visited nodes.
+8) Print out the explosion of the system.
+9) From each transaction do an extensive depth-first-search.
+10) Use stack for this purpose.
+11) Print out your explosion using required spaces.
+12) If modules repeated add * with it. 

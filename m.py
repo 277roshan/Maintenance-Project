@@ -9,7 +9,8 @@ def data_structure(length_of_module, file_name):
 		while True:
 			a = f.readline()
 			a = a.split()
-			if a[0] == '**':
+			# print a
+			if a[0] == '*':
 				defective = f.readline()
 				defective = defective.split()
 				break
@@ -74,6 +75,13 @@ def all_paths(tree, transaction, defective):
 			if i[-1] == j[1]:
 				final.append(i + j[2:])
 
+
+	final = [ ' '.join(i) for i in final]
+	required_paths = [' '.join(i) for i in required_paths]
+	final = final + required_paths
+	final = set(final)
+	final = list(final)
+
 	return final
 
 
@@ -106,7 +114,7 @@ def explosion(tree, transaction):
 
 def main():
 	'''Main program to test the modules.'''
-	data = data_structure(10, 'input2.txt')
+	data = data_structure(10, 'inp.txt')
 	try:
 		tree = data[0] #Get tree structure for the dataset
 		print tree
@@ -129,7 +137,6 @@ def main():
 		print "Paths from the transaction to the given defective module"
 		for i in transactions:
 			print
-			print "Path from",i,"to",defect
 			print i, "TO",defect
 			ans = all_paths(tree, i, defect)
 			for i in ans:
