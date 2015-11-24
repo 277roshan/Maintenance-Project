@@ -1,6 +1,8 @@
+'''Program to implement maintenace project.'''
 import itertools
 
 def data_structure(length_of_module):
+	'''Create required data structure taking length_of_module as input'''
 	tree = {}
 	with open('input.txt') as f:
 		while True:
@@ -19,6 +21,7 @@ def data_structure(length_of_module):
 	return (tree,defective[0])
 
 def get_transactions(tree):
+	'''Get all available transactions.'''
 	a = tree.keys()
 	b = tree.values()
 	b = list(itertools.chain(*b))
@@ -31,6 +34,7 @@ def get_transactions(tree):
 	return transactions
 
 def unique_modules(tree, transaction):
+	'''Find and return all unique modules for a transaction.'''
 	visited = []
 	queue = [transaction]
 
@@ -47,6 +51,7 @@ def unique_modules(tree, transaction):
 
 
 def all_paths(tree, transaction, defective):
+	'''Find all paths to a defective module from a given transaction by breadth first search.'''
 	queue = [[transaction]]
 	required_paths = []
 	rest = []
@@ -72,6 +77,7 @@ def all_paths(tree, transaction, defective):
 
 
 def explosion(tree, transaction):
+	'''Show the explosion for a transaction by depth first search.'''
 
 	visited = []
 	stack = [(transaction,0)]
