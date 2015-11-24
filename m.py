@@ -38,7 +38,7 @@ def unique_modules(tree, transaction):
 			return visited[1:]
 		value = queue.pop()
 		if value not in visited:
-			print value
+			# print value
 			visited.append(value)
 		if value in tree.keys(): 
 			for i in tree[value]:
@@ -54,5 +54,8 @@ def unique_modules(tree, transaction):
 #test
 tree = data_structure(3)
 x = get_transactions(tree)
-m = unique_modules(tree, x[1])
-print m,len(m)
+for i in x:
+	m = unique_modules(tree, i)
+	print "Unique modules for", i
+	print m
+	print "Number of unique modules:",len(m)
