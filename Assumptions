@@ -1,6 +1,8 @@
 Assumptions:
 
 i) The input is taken from a text file called input.txt
+The module/transaction relationship are on different lines of my input
+One defective module after you reach **
 e.g input
 
 A B
