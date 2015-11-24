@@ -7,6 +7,7 @@ def data_structure(length_of_module):
 			a = f.readline()
 			a = a.split()
 			if a[0] == '**':
+				defective = f.readline()
 				break
 			if len(a[0]) > length_of_module or len(a[1]) > length_of_module:
 				return False
@@ -14,8 +15,8 @@ def data_structure(length_of_module):
 				tree[a[0]]=[a[1]]
 			else:
 				tree[a[0]].append(a[1])
-
-	return tree
+	
+	return tree, defective
 
 def get_transactions(tree):
 	a = tree.keys()
@@ -49,13 +50,53 @@ def unique_modules(tree, transaction):
 					queue = [i] + queue
 
 
+def all_paths(tree, transaction, defective):
+	queue = [[transaction]]
+	required_paths = []
+	rest = []
+	while queue:
+		a = queue.pop()
+		if a[-1] in tree.keys():
+			for i in tree[a[-1]]:
+				if i not in a:
+					new = a + [i]
+					queue = [new] + queue
+					if i == defective:
+						required_paths.append(new)
+					else:
+						rest.append(new)
 
+	# print required_paths
+	check_point = []
+
+	final = []
+	for i in rest:
+		for j in required_paths:
+			if i[-1] == j[1]:
+				final.append(i + j[2:])
+
+	return final
+				
+		
+
+		
+		
+
+		
+		
+
+		
+
+	# print required_paths
 
 #test
-tree = data_structure(3)
+tree,defective = data_structure(3)
 x = get_transactions(tree)
-for i in x:
-	m = unique_modules(tree, i)
-	print "Unique modules for", i
-	print m
-	print "Number of unique modules:",len(m)
+# for i in x:
+# 	m = unique_modules(tree, i)
+# 	print "Unique modules for", i
+# 	print m
+# 	print "Number of unique modules:",len(m)
+
+print all_paths(tree,'A','F')
+# print tree
