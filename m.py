@@ -1,4 +1,5 @@
 '''Program to implement maintenace project.'''
+
 import itertools
 
 def data_structure(length_of_module, file_name):
