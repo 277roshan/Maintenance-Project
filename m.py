@@ -1,10 +1,10 @@
 '''Program to implement maintenace project.'''
 import itertools
 
-def data_structure(length_of_module):
+def data_structure(length_of_module, file_name):
 	'''Create required data structure taking length_of_module as input'''
 	tree = {}
-	with open('input.txt') as f:
+	with open(file_name) as f:
 		while True:
 			a = f.readline()
 			a = a.split()
@@ -92,10 +92,10 @@ def explosion(tree, transaction):
 		if vertex not in visited:
 			visited = visited + [vertex]
 			if vertex in tree.keys():
-				s += 1
+				
 				for i in reversed(tree[vertex]):
 					if i not in visited:
-						stack.append((i,s))
+						stack.append((i,space + 1))
 					else:
 						for k in xrange(space + 1):
 							print ' ',
@@ -105,9 +105,10 @@ def explosion(tree, transaction):
 
 def main():
 	'''Main program to test the modules.'''
-	data = data_structure(10)
+	data = data_structure(10, 'input2.txt')
 	try:
 		tree = data[0] #Get tree structure for the dataset
+		print tree
 		defect = data[1]  #Get the defective module
 		transactions = get_transactions(tree) #Get all transactions in the tree structure
 

@@ -1,5 +1,7 @@
 Assumptions:
 
+i) The input is taken from a text file called input.txt
+
 1) The name of the modules can be upto 10 characters
 
 3) The data structure we build are dictionary based
@@ -15,7 +17,8 @@ e.g. A has B C D X Y Z F P Q1
 Also, Number of unique modules is 9
 
 5) Defective module is input after appearance of ** in input datasets
-Paths from all transactions to the given defective module is calculated
+Paths from all transactions to the given defective module is calculated.
+We accept only one defective module.
 e.g. F in our case. We can change this in the input.txt file
 
 6) Explosion for each transaction is calculated and presented in output
@@ -39,6 +42,5 @@ A
     X *
 
 
-7) The output is shown in standard output
+8) The output is shown in standard output
 
-8) The input is taken from a text file called input.txt
