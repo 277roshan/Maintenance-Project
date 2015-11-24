@@ -61,9 +61,7 @@ def all_paths(tree, transaction, defective):
 						required_paths.append(new)
 					else:
 						rest.append(new)
-
 	check_point = []
-
 	final = []
 	for i in rest:
 		for j in required_paths:
@@ -71,6 +69,11 @@ def all_paths(tree, transaction, defective):
 				final.append(i + j[2:])
 
 	return final
+
+
+def explosion(tree):
+	pass
+
 
 #test
 
