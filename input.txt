@@ -1,4 +1,4 @@
-A B
+AMMM B
 A C
 A D
 B X
@@ -15,5 +15,5 @@ Z B
 Z F
 Q C
 Q D
-*
+**
 F
