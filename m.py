@@ -1,4 +1,4 @@
-
+import itertools
 
 def data_structure(length_of_module):
 	tree = {}
@@ -17,7 +17,20 @@ def data_structure(length_of_module):
 
 	return tree
 
+def get_transactions(tree):
+	a = tree.keys()
+	b = tree.values()
+	b = list(itertools.chain(*b))
+	b = set(b)
+	b = list(b)
+	transactions = []
+	for i in a:
+		if i not in b:
+			transactions.append(i)
+	return transactions
 
-print data_structure(3)
+#test
+tree = data_structure(3)
+print get_transactions(tree)
 
 
