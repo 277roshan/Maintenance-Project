@@ -71,23 +71,43 @@ def all_paths(tree, transaction, defective):
 	return final
 
 
-def explosion(tree):
-	pass
+def explosion(tree, transaction):
+	visited = []
+	stack = [transaction]
+	while stack:
+		vertex = stack.pop()
+		print vertex
+		if vertex not in visited:
+			visited = visited + [vertex]
+			if vertex in tree.keys():
+				for i in reversed(tree[vertex]):
+
+					if i not in visited:
+						stack.append(i)
+					else:
+						print i,'*' 
+		
+	# print visited	
+
 
 
 #test
 
 data = data_structure(3)
 tree = data[0]
-defect = data[1] 
-transactions = get_transactions(tree)
+print tree
+explosion(tree,'A')
 
-for i in transactions:
-	m = unique_modules(tree, i)
-	print "Unique modules for", i
-	print m
-	print "Number of unique modules:",len(m)
+# print tree
+# defect = data[1] 
+# transactions = get_transactions(tree)
 
-for i in transactions:
-	print i, "TO",defect
-	print all_paths(tree, i, defect)
+# for i in transactions:
+# 	m = unique_modules(tree, i)
+# 	print "Unique modules for", i
+# 	print m
+# 	print "Number of unique modules:",len(m)
+
+# for i in transactions:
+# 	print i, "TO",defect
+# 	print all_paths(tree, i, defect)
