@@ -1,0 +1,19 @@
+A B
+A C
+A D
+B X
+B Y
+B Z
+C F
+D X
+D Y
+D Z
+X P
+X Q1
+Y X
+Z B
+Z F
+Q C
+Q D
+*
+F
