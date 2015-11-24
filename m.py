@@ -104,16 +104,14 @@ def explosion(tree, transaction):
 
 
 def main():
-	#test
+	'''Main program to test the modules.'''
 	data = data_structure(10)
 	try:
-		tree = data[0]
+		tree = data[0] #Get tree structure for the dataset
+		defect = data[1]  #Get the defective module
+		transactions = get_transactions(tree) #Get all transactions in the tree structure
 
-		# print tree
-		defect = data[1] 
-		transactions = get_transactions(tree)
-
-
+		#Find unique modules
 		print
 		for i in transactions:
 			m = unique_modules(tree, i)
@@ -123,7 +121,9 @@ def main():
 			print
 			print "Number of unique modules is",len(m)
 			print
+		#Find unique modules
 
+		#Find all paths from a transaction to given defective module
 		print "Paths from the transaction to the given defective module"
 		for i in transactions:
 			print
@@ -136,16 +136,21 @@ def main():
 				print
 
 		print
+		#Find all paths from a transaction to given defective module
+
+		# Find explosion of the above system for particular transactions
 		print 'Explosion of the above system'
 		print
 		for i in transactions:
 			print 'Explosion for transaction',i
 			explosion(tree,i)
 			print 
+		# Find explosion of the above system for particular transactions
 
 	except:
-		print "Module Characters more than 10. Please correct!" 
+		print "Module Characters more than 10. Please correct!" # Error message in case module names are more than 10 characters
 
 
 if __name__ == "__main__":
+	'''Main Program.'''
 	main()
