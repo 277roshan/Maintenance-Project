@@ -1,3 +1,44 @@
 Assumptions:
 
 1) The name of the modules can be upto 10 characters
+
+3) The data structure we build are dictionary based
+e.g.
+{'A': ['B', 'C', 'D'], 'C': ['F'], 'B': ['X', 'Y', 'Z'], 'D': ['X', 'Y', 'Z'],
+ 'Q': ['C', 'D'], 'Y': ['X'], 'X': ['P', 'Q1'], 'Z': ['B', 'F']}
+
+3) Transactions do not appear as values in the dictionary. 
+e.g. Notice, A is a transaction it only occurs as a keyword 
+
+4) Unique modules for a transaction are set of all modules connected to A
+e.g. A has B C D X Y Z F P Q1
+Also, Number of unique modules is 9
+
+5) Defective module is input after appearance of ** in input datasets
+Paths from all transactions to the given defective module is calculated
+e.g. F in our case. We can change this in the input.txt file
+
+6) Explosion for each transaction is calculated and presented in output
+e.g For A
+
+A
+  B
+    X
+      P
+      Q1
+    Y
+      X *
+    Z
+      B *
+      F
+  C
+    F *
+  D
+    Z *
+    Y *
+    X *
+
+
+7) The output is shown in standard output
+
+8) The input is taken from a text file called input.txt

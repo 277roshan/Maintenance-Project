@@ -103,21 +103,40 @@ def main():
 	try:
 		tree = data[0]
 
-		print tree
+		# print tree
 		defect = data[1] 
 		transactions = get_transactions(tree)
 
+
+		print
 		for i in transactions:
 			m = unique_modules(tree, i)
-			print "Unique modules for", i
-			print m
-			print "Number of unique modules:",len(m)
+			print "Unique modules for transaction", i,":"
+			for i in m:
+				print i,
+			print
+			print "Number of unique modules is",len(m)
+			print
 
+		print "Paths from the transaction to the given defective module"
 		for i in transactions:
+			print
+			print "Path from",i,"to",defect
 			print i, "TO",defect
-			print all_paths(tree, i, defect)
+			ans = all_paths(tree, i, defect)
+			for i in ans:
+				for j in i:
+					print j,
+				print
 
-		explosion(tree,'A')
+		print
+		print 'Explosion of the above system'
+		print
+		for i in transactions:
+			print 'Explosion for transaction',i
+			explosion(tree,i)
+			print 
+
 	except:
 		print "Module Characters more than 10. Please correct!" 
 
