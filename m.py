@@ -6,10 +6,10 @@ def data_structure(length_of_module):
 		while True:
 			a = f.readline()
 			a = a.split()
-			if len(a[0]) > length_of_module or len(a[1]) > length_of_module:
-				return False
 			if a[0] == '**':
 				break
+			if len(a[0]) > length_of_module or len(a[1]) > length_of_module:
+				return False
 			if a[0] not in tree.keys():
 				tree[a[0]]=[a[1]]
 			else:
