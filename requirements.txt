@@ -1,0 +1,5 @@
+1) Build appropriate data structure
+2) Get all transactions
+3) Find Unique modules and number of unique modules for each transaction.
+4) Find all paths from all transactions to defective module and print them out.
+4) Print out explosion of the system for each transaction
