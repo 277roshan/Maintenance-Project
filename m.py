@@ -72,22 +72,29 @@ def all_paths(tree, transaction, defective):
 
 
 def explosion(tree, transaction):
+
 	visited = []
-	stack = [transaction]
+	stack = [(transaction,0)]
+	s = 0
+
 	while stack:
-		vertex = stack.pop()
+		vertex, space = stack.pop()
+		for i in xrange(space):
+			print ' ',
 		print vertex
+		
 		if vertex not in visited:
 			visited = visited + [vertex]
 			if vertex in tree.keys():
+				s += 1
 				for i in reversed(tree[vertex]):
-
 					if i not in visited:
-						stack.append(i)
+						stack.append((i,s))
 					else:
+						for k in xrange(space + 1):
+							print ' ',
+						s-=2
 						print i,'*' 
-		
-	# print visited	
 
 
 
